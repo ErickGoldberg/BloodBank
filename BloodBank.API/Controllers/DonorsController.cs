@@ -7,13 +7,13 @@ namespace BloodBank.API.Controllers
     public class DonorsController : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult> Get()
+        public async Task<ActionResult> GetAll()
         {
             return Ok();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult> Get(int id)
+        public async Task<ActionResult> GetById(int id)
         {
             if (id == 0)
                 return NotFound();
@@ -22,15 +22,15 @@ namespace BloodBank.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] string value)
+        public async Task<ActionResult> Register([FromBody] string value)
         {
-
+            
 
             return Created();
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> Put(int id, [FromBody] string value)
+        public async Task<ActionResult> Update(int id, [FromBody] string value)
         {
             if (id == 0)
                 return NotFound();
