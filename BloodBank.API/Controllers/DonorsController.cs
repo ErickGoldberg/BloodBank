@@ -7,36 +7,42 @@ namespace BloodBank.API.Controllers
     public class DonorsController : ControllerBase
     {
         [HttpGet]
-        public async Task<ActionResult> GetAll()
+        public async Task<ActionResult> Get()
         {
-
             return Ok();
         }
 
-        [HttpGet]
-        public async Task<ActionResult> GetById(int id)
+        [HttpGet("{id}")]
+        public async Task<ActionResult> Get(int id)
         {
+            if (id == 0)
+                return NotFound();
 
             return Ok();
         }
 
         [HttpPost]
-        public async Task<ActionResult> Register(int id)
+        public async Task<ActionResult> Post([FromBody] string value)
         {
+
+
+            return Created();
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult> Put(int id, [FromBody] string value)
+        {
+            if (id == 0)
+                return NotFound();
 
             return Ok();
         }
 
-        [HttpPut]
-        public async Task<ActionResult> Update(int id)
-        {
-
-            return Ok();
-        }
-
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
+            if (id == 0)
+                return NotFound();
 
             return Ok();
         }
