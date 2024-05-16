@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BloodBank.Application\BloodBank.Application.csproj" />
+  </ItemGroup>
+
 </Project>
