@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace BloodBank.Infrastructure.Persistence.Configurations
 {
-    public class DonorConfiguration : IEntityTypeConfiguration<Donor>
+    public class BloodStockConfiguration : IEntityTypeConfiguration<BloodStock>
     {
-        public void Configure(EntityTypeBuilder<Donor> builder)
+        public void Configure(EntityTypeBuilder<BloodStock> builder)
         {
             
         }

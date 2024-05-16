@@ -6,6 +6,7 @@ using BloodBank.Core.Repositories;
 using BloodBank.Infrastructure.Persistence;
 using BloodBank.Infrastructure.Repositories;
 using Microsoft.OpenApi.Models;
+using FluentValidation.AspNetCore;
 using Serilog;
 
 namespace BloodBank.API.Extensions;
@@ -60,8 +61,8 @@ public static class ServiceConfiguration
             config.RegisterServicesFromAssembly(typeof(SendDonationCommand).Assembly);
         });
 
-        //services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
-        //    .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddressModelValidator>());
+        services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
+            .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddressModelValidator>());
 
         //builder.Services.AddDbContext<BloodBankDbContext>(options
         //    => options.UseSqlServer(builder.Configuration.GetConnectionString("FinancialGoalManagerDb")));
