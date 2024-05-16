@@ -1,6 +1,7 @@
 ﻿using BloodBank.Application.DTOs;
 using BloodBank.Core.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace BloodBank.API.Controllers
 {
@@ -31,7 +32,7 @@ namespace BloodBank.API.Controllers
             {
                 return BadRequest("CEP is in invalid format");
             }
-
+            
             return Ok(address);
         }
     }

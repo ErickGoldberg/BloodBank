@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Serilog;
 
 namespace BloodBank.API.Controllers
 {
@@ -24,7 +25,6 @@ namespace BloodBank.API.Controllers
         [HttpPost]
         public async Task<ActionResult> Create([FromBody] string value)
         {
-
 
             return Created();
         }

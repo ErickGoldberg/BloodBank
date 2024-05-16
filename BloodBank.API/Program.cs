@@ -1,5 +1,7 @@
 using BloodBank.Core.Repositories;
 using BloodBank.Infrastructure.Repositories;
+using Serilog;
+using Serilog.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,21 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<ICepRepository, CepRepository>();
+
+var connectionString = string.Empty;
+
+builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
+{
+    Log.Logger = new LoggerConfiguration()
+        .Enrich.FromLogContext()
+        .WriteTo.PostgreSQL(
+            connectionString: connectionString,
+            tableName: "Logs",
+            needAutoCreateTable: true
+        )
+        .WriteTo.Console()
+        .CreateLogger();
+}).UseSerilog();
 
 var app = builder.Build();
 

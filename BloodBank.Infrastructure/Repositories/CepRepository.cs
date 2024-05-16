@@ -1,6 +1,7 @@
 ﻿using BloodBank.Application.DTOs;
 using BloodBank.Core.Repositories;
 using System.Text.Json;
+using Serilog;
 
 namespace BloodBank.Infrastructure.Repositories
 {
@@ -29,14 +30,16 @@ namespace BloodBank.Infrastructure.Repositories
                 }
                 else
                 {
-                    // passar msg para o log
-                    throw new Exception();
+                    var errorMessage = "O CEP informado está inválido.";
+                    
+                    Log.Error(errorMessage);
+                    throw new ArgumentException(errorMessage, nameof(cep));
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                // criar log de erro aq
-                return null;
+                Log.Error($"An exception has occured in GetAddressByCepAsync method: {ex.Message}");
+                throw new ArgumentException($"An error has occured: {ex}");
             }
         }
     }
