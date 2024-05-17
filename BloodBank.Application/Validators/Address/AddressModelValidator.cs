@@ -1,4 +1,4 @@
-﻿using BloodBank.Application.DTOs;
+﻿using BloodBank.Application.DTOs.Address;
 using FluentValidation;
 
 namespace BloodBank.Application.Validators.Address;

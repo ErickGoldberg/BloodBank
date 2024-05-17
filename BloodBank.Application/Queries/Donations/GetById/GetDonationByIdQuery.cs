@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BloodBank.Application.DTOs.Donations;
+using MediatR;
 
 namespace BloodBank.Application.Queries.Donations.GetById
-{
-    internal class GetDonationByIdQuery
-    {
-    }
-}
+
+public sealed record GetDonationByIdQuery(int Id) : IRequest<GetDonationViewModel?>;

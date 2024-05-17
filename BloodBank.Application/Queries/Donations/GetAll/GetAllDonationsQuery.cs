@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BloodBank.Application.DTOs.Donations;
+using MediatR;
 
-namespace BloodBank.Application.Queries.Donations.GetAll
-{
-    internal class GetAllDonationsQuery
-    {
-    }
-}
+namespace BloodBank.Application.Queries.Donations.GetAll;
+
+public sealed record GetAllDonationsQuery(int Skip = 0, int Take = 50) : IRequest<IEnumerable<GetDonationViewModel>>;

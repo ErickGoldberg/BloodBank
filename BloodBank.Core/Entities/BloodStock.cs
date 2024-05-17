@@ -19,5 +19,4 @@
             IsActive = true;
         }
     }
-
 }

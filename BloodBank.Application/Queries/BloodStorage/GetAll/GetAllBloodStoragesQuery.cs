@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BloodBank.Core.Entities;
+using MediatR;
 
-namespace BloodBank.Application.Queries.BloodStorage.GetAll
-{
-    internal class GetAllBloodStoragesQuery
-    {
-    }
-}
+namespace BloodBank.Application.Queries.BloodStorage.GetAll;
+
+public sealed record GetAllBloodStocksQuery(int Skip = 0, int Take = 50) : IRequest<IEnumerable<BloodStock>>;

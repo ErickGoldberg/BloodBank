@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace BloodBank.Application.DTOs
+namespace BloodBank.Application.DTOs.Address
 {
     public class CepDto
     {

@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BloodBank.Core.Entities;
+using MediatR;
 
-namespace BloodBank.Application.Queries.BloodStorage.GetByBloodType
-{
-    internal class GetBloodStorageByBloodTypeQuery
-    {
-    }
-}
+namespace BloodBank.Application.Queries.BloodStorage.GetByBloodType;
+
+public sealed record GetBloodStockByBloodTypeQuery(string BloodType, string RhFactor) : IRequest<BloodStock?>;

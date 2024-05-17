@@ -64,9 +64,9 @@ public static class ServiceConfiguration
         services.AddControllers(options => options.Filters.Add(typeof(ValidationFilter)))
             .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddressModelValidator>());
 
-        //builder.Services.AddDbContext<BloodBankDbContext>(options
-        //    => options.UseSqlServer(builder.Configuration.GetConnectionString("FinancialGoalManagerDb")));
-        
+        builder.Services.AddDbContext<BloodBankDbContext>(options
+            => options.UseSqlServer(builder.Configuration.GetConnectionString("FinancialGoalManagerDb")));
+
         builder.Host.ConfigureAppConfiguration((hostingContext, config) =>
         {
             Log.Logger = new LoggerConfiguration()

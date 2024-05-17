@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BloodBank.Core.Entities;
+using MediatR;
 
-namespace BloodBank.Application.Queries.BloodStorage.GetById
-{
-    internal class GetBloodStorageByIdQuery
-    {
-    }
-}
+namespace BloodBank.Application.Queries.BloodStorage.GetById;
+
+public sealed record GetBloodStockByIdQuery(int Id) : IRequest<BloodStock?>;
